@@ -1,0 +1,103 @@
+algorithms:
+  # - name: constrained_decoding
+  #   variants:
+  #     - model_name: models/Llama-3.2-1B-Instruct
+      #   max_tokens: 400
+      # - model_name: models/Llama-3.1-8B-Instruct
+      #   max_tokens: 400
+      # - model_name: models/Qwen2.5-1.5B-Instruct
+      #   max_tokens: 400
+      # - model_name: models/Qwen2.5-3B-Instruct
+      #   max_tokens: 400
+      # - model_name: models/Qwen2.5-7B-Instruct
+      #   max_tokens: 400
+      # - model_name: /lustre/reddyavi/models/Qwen2.5-14B-Instruct
+      #   max_tokens: 400
+  # - name: two_stage_decoding
+  #   variants:
+      # - model_name: models/Llama-3.2-1B-Instruct
+      #   stage1_max_tokens: 1024
+      #   max_tokens: 400
+      #   temperature: 0.6
+      #   question_in_stage2: true
+  #     #   question_in_stage2: true
+      # - model_name: models/Llama-3.1-8B-Instruct
+      #   stage1_max_tokens: 800
+      #   max_tokens: 400
+      #   temperature: 0.0
+      #   question_in_stage2: true
+      # - model_name: models/Qwen2.5-1.5B-Instruct
+      #   stage1_max_tokens: 800
+      #   max_tokens: 400
+      #   temperature: 0.6
+      #   question_in_stage2: true
+      # - model_name: models/Qwen2.5-3B-Instruct
+      #   stage1_max_tokens: 800
+      #   max_tokens: 400
+      #   temperature: 0.6
+      #   question_in_stage2: true
+      # - model_name: models/Qwen2.5-7B-Instruct
+      #   stage1_max_tokens: 800
+      #   max_tokens: 400
+      #   temperature: 0.6
+      #   question_in_stage2: true
+      # - model_name: /lustre/reddyavi/models/Qwen2.5-14B-Instruct
+      #   stage1_max_tokens: 800
+      #   max_tokens: 400
+      #   temperature: 0.6
+      #   question_in_stage2: true
+
+  # - name: constrained_prompt_decoding
+  #   variants:
+  #     - model_name: models/Llama-3.2-1B-Instruct
+  #       max_tokens: 400
+  #     - model_name: models/Llama-3.1-8B-Instruct
+  #       max_tokens: 400
+  #     - model_name: models/Qwen2.5-1.5B-Instruct
+  #       max_tokens: 400
+  #     - model_name: models/Qwen2.5-3B-Instruct
+  #       max_tokens: 400
+  #     - model_name: models/Qwen2.5-7B-Instruct
+  #       max_tokens: 400
+  #     - model_name: /lustre/reddyavi/models/Qwen2.5-14B-Instruct
+  #       max_tokens: 400
+
+    - name: two_stage_decoding_scaled
+      variants:
+      # - model_name: models/Llama-3.2-1B-Instruct
+      #   stage1_max_tokens: 8192
+      #   stage1_num_samples: 16
+      # - model_name: models/Llama-3.1-8B-Instruct
+      #   stage1_max_tokens: 8192
+      #   stage1_num_samples: 16
+      - model_name: models/Qwen2.5-1.5B-Instruct
+        stage1_max_tokens: 8192
+        stage1_num_samples: 8
+      - model_name: models/Qwen2.5-3B-Instruct
+        stage1_max_tokens: 8192
+        stage1_num_samples: 8
+      # - model_name: models/Qwen2.5-7B-Instruct
+      #   stage1_max_tokens: 8192
+      #   stage1_num_samples: 16
+      # - model_name: /lustre/reddyavi/models/Qwen2.5-14B-Instruct
+      #   stage1_max_tokens: 8192
+      #   stage1_num_samples: 16
+
+
+tasks:
+  - name: gsm8k
+    params: 
+      json_schema: true
+  - name: math500
+    params: 
+      json_schema: true
+  # - name: gsm_symbolic
+  #   params:
+  #     json_schema: false
+  #     grammar: false
+  #     start_symbol: "<<"
+  #     end_symbol: ">>"
+  # - name: prover9
+  #   params:
+  #     grammar: false
+  #     json_schema: false
